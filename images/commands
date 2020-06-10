@@ -14,3 +14,14 @@ docker build -t apache-centos:first .
 
 *** create a container 
 docker run -d --name apache-container -p {pto_machine}:{pto_app_cntainer} apache-centos:first
+
+
+** create certificate 
+
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout docker_apache.key -out docker_apacher.cert
+
+
+*** to delete images run 
+docker rmi {id or image+tag} 
+or run 
+docker image rm {id or image+tag} 
