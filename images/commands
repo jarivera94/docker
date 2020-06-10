@@ -25,3 +25,12 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout docker_apache.key -o
 docker rmi {id or image+tag} 
 or run 
 docker image rm {id or image+tag} 
+
+**** to change dockerfile name run 
+
+docker build -t {name:tag} -f {/route/file}
+
+*** to delete dangling images run 
+
+docker images -f dangling=true -q | xargs docker rmi
+
