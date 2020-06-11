@@ -1,0 +1,12 @@
+#indicate volumen
+docker run -d --name db1 -p 3306:3306 -e "MYSQL_ROOT_PASSWORD=123456" -e "MYSQL_DATA_BASE=contet"  -e "MYSQL_USER=juan" -e "MYSQL_PASSWORD=123456" -v /Users/alexander.rivera/Documents/docker/volumens/mysql:/var/lib/mysql mysql:5.7
+#volumen anonymus
+docker run -d --name db1 -p 3306:3306 -e "MYSQL_ROOT_PASSWORD=123456" -e "MYSQL_DATA_BASE=contet"  -e "MYSQL_USER=juan" -e "MYSQL_PASSWORD=123456" -v /var/lib/mysql mysql:5.7
+
+#create volume
+docker volume create {volume_name}
+docker run -d --name db1 -p 3306:3306 -e "MYSQL_ROOT_PASSWORD=123456" -e "MYSQL_DATA_BASE=contet"  -e "MYSQL_USER=juan" -e "MYSQL_PASSWORD=123456" -v {volume_name}/var/lib/mysql mysql:5.7
+
+##to delete dangling volume
+
+docker volume ls -f dangling=true -q |xargs docker volume rm
