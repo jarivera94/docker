@@ -46,3 +46,36 @@ docker run -d -e "prubea=4321" --name {name} {image:tag}
 ** container mysql
 
 docker run -d --name db1 -p 3306:3306 -e "MYSQL_ROOT_PASSWORD=123456" -e "MYSQL_DATA_BASE=contet"  -e "MYSQL_USER=juan" -e "MYSQL_PASSWORD=123456" mysql:5.7
+
+** to see resources that are using some container run 
+
+docker stats {conatiner}
+
+** to define threshold 
+docker run -d -m "500mb" --name {nanme} {image}
+
+docker run -d -m "500mb" --cpuset-cpus {0-1} --name {nanme} {image}
+
+
+# copy files to container
+machine to container
+docker cp {/route/file} {name_container}:/route/blabla
+container to machine
+
+docker cp {name_container}:/route/blabla {/route/file}
+
+# make image from container
+docker commit {container_name} {image_result}
+
+#override cmd in a container
+
+docker run -d --name {nanme} {image} {space_to_write_command}
+
+
+#destroy containers automatically
+
+docker run --rm -it --name {name} {image}
+
+#return the latest container 
+
+docker ps -l
