@@ -1,0 +1,48 @@
+*** to see running containers
+docker ps
+*** to see all containers
+docker ps -a
+
+*** to download images run 
+docker pull {image}
+
+** to build docker run 
+
+docker run -d --name {custon_name} -{port_physical_machine}:{container_port} {image}
+
+-d that indicates to run on second plane
+
+
+** to rename containers
+
+docker rename {old} {new}
+
+** to stop containers
+
+docker stop {name or id}
+
+** to start container 
+
+docker start {name or id }
+
+** to restart container 
+
+docker restart {name or id }
+
+** to execute commands on container 
+
+docker exec -ti {container} bash
+
+-t is terminal and i is interactive
+
+optional before -it you can include -u in order to indicate what is the user interactive for instance 
+
+docker exec -u -ti {container} bash
+
+** environment variables add -e "key=value"
+
+docker run -d -e "prubea=4321" --name {name} {image:tag}
+
+** container mysql
+
+docker run -d --name db1 -p 3306:3306 -e "MYSQL_ROOT_PASSWORD=123456" -e "MYSQL_DATA_BASE=contet"  -e "MYSQL_USER=juan" -e "MYSQL_PASSWORD=123456" mysql:5.7
