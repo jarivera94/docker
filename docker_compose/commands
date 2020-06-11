@@ -1,0 +1,7 @@
+
+## to create container from docker compose
+
+docker-compose -f docker_compose/docker-compose-nginx.yml  up -d
+
+## delete docker-compose
+docker-compose -f docker_compose/docker-compose-nginx.yml downn

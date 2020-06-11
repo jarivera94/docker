@@ -1,0 +1,16 @@
+version: '3'
+services: 
+    database:
+        container_name: mysql-docker-compose
+        image: mysql
+        ports: 
+            - '3306:3306'
+        environment: 
+            #volumen's name
+            - "MYSQL_ROOT_PASSWORD=123456"
+            #volumen's host
+            - "/home:/home"
+        volumes: 
+            - "vol1:/usr/lib"
+volumes: 
+    vol1
