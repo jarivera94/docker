@@ -1,0 +1,34 @@
+#defaul red is a new interfce named docker0 is bridge
+
+docker network inspect bridge
+
+#create network using driver bridge
+docker network create test-network
+
+#assign gateway and subnets
+docker network create -d bridge --subnet 172.19.10.0/24 --gateway 172.19.10.1 network-bridge-test
+
+#inspect network
+docker network inspect {network_name}
+
+##connect container to specific network
+docker run --network network-bridge-test -d --name {name} {image}
+
+
+##connect containers on the same network, create them in the same network
+
+##connect containers running on different networks
+
+docker network connect {network-to-connetc} {container_name}
+
+##disconnect containers running on different networks
+docker network disconnect {network-to-connetc} {container_name}
+
+##delete networks
+
+docker network rm {network}
+
+##assign specific ip to container
+docker run --network network-bridge-test --ip {ip} -d --name {name} {image}
+
+##netwrok type host assign the same network dockehost to container
